@@ -6,28 +6,53 @@
   <title>Ethan Pinto | PT &amp; Online Coach | Sydney</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --purple: #8a00c2;
-      --purple-bg: #f5e6ff;
-      --text: #111111;
-      --muted: #666666;
-      --border: #dedede;
-      --white: #ffffff;
-      --offwhite: #f9f9f9;
+      --card: #fdfdfd;
+      --input: #ebebeb;
+      --muted: #f5f5f5;
+      --border: #e7e7ee;
+      --radius: 1.4rem;
+      --primary: #7033ff;
+      --secondary: #edf0f4;
+      --background: #fdfdfd;
+      --foreground: #000000;
+      --destructive: #e54b4f;
+      --muted-foreground: #525252;
+      --primary-foreground: #ffffff;
+      --shadow: 0px 2px 3px 0px rgba(0,0,0,0.16);
+      --letter-spacing: -0.025em;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --card: #222327;
+        --input: #33353a;
+        --muted: #2a2c33;
+        --border: #33353a;
+        --primary: #8c5cff;
+        --secondary: #2a2c33;
+        --background: #1a1b1e;
+        --foreground: #f0f0f0;
+        --destructive: #f87171;
+        --muted-foreground: #a0a0a0;
+        --primary-foreground: #ffffff;
+        --shadow: 0px 2px 6px 0px rgba(0,0,0,0.4);
+      }
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background: var(--white);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--foreground);
+      background: var(--background);
       line-height: 1.6;
       font-size: 16px;
+      letter-spacing: var(--letter-spacing);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -41,59 +66,62 @@
       text-align: center;
       padding: 4rem 2rem;
       border-bottom: 1px solid var(--border);
+      background: var(--background);
     }
 
     .hero-eyebrow {
       display: inline-block;
       font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--purple);
+      color: var(--primary);
       margin-bottom: 1.5rem;
+      background: var(--secondary);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
     }
 
     .hero-name {
       font-size: clamp(3.25rem, 9vw, 6rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
+      font-weight: 800;
+      letter-spacing: -0.04em;
       line-height: 1;
-      color: var(--text);
+      color: var(--foreground);
       margin-bottom: 1rem;
     }
 
     .hero-title {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
       font-weight: 400;
-      color: var(--muted);
+      color: var(--muted-foreground);
       margin-bottom: 0.6rem;
-      letter-spacing: 0.01em;
     }
 
     .hero-tagline {
       font-size: clamp(1.2rem, 3.5vw, 1.6rem);
-      font-weight: 600;
-      color: var(--text);
+      font-weight: 700;
+      color: var(--foreground);
       margin-bottom: 2.75rem;
-      letter-spacing: -0.01em;
     }
 
     .btn-cta {
       display: inline-block;
-      background: var(--purple);
-      color: var(--white);
+      background: var(--primary);
+      color: var(--primary-foreground);
       padding: 0.9rem 2.5rem;
       font-family: inherit;
       font-size: 0.975rem;
       font-weight: 600;
-      letter-spacing: 0.01em;
+      letter-spacing: var(--letter-spacing);
       border: none;
       cursor: pointer;
       text-decoration: none;
-      transition: background 0.15s ease;
+      border-radius: var(--radius);
+      transition: opacity 0.15s ease;
     }
 
-    .btn-cta:hover { background: #7200a0; }
+    .btn-cta:hover { opacity: 0.85; }
 
     /* ── FORM WRAPPER ── */
     .form-wrapper {
@@ -110,31 +138,33 @@
     .form-header h2 {
       font-size: 1.75rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
       margin-bottom: 0.5rem;
+      color: var(--foreground);
     }
 
     .form-header p {
-      color: var(--muted);
+      color: var(--muted-foreground);
       font-size: 1rem;
     }
 
     /* ── FORM SECTIONS ── */
     .section {
-      padding-bottom: 2.5rem;
-      margin-bottom: 2.5rem;
-      border-bottom: 1px solid var(--border);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow);
     }
-
-    .section:last-of-type { border-bottom: none; }
 
     .section-label {
       font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--purple);
-      margin-bottom: 1.75rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
     }
 
     /* ── GRID ── */
@@ -152,16 +182,16 @@
       font-size: 0.875rem;
       font-weight: 500;
       margin-bottom: 0.4rem;
-      color: var(--text);
+      color: var(--foreground);
     }
 
     .field label .opt {
       font-weight: 400;
-      color: var(--muted);
+      color: var(--muted-foreground);
       font-size: 0.8rem;
     }
 
-    .field label .req { color: var(--purple); }
+    .field label .req { color: var(--primary); }
 
     input[type="text"],
     input[type="email"],
@@ -171,23 +201,24 @@
       width: 100%;
       padding: 0.75rem 0.9rem;
       border: 1.5px solid var(--border);
-      background: var(--white);
+      background: var(--input);
       font-family: inherit;
       font-size: 0.975rem;
-      color: var(--text);
+      color: var(--foreground);
       outline: none;
       transition: border-color 0.15s;
-      border-radius: 0;
+      border-radius: calc(var(--radius) * 0.6);
       -webkit-appearance: none;
+      letter-spacing: var(--letter-spacing);
     }
 
     input[type="text"]:focus,
     input[type="email"]:focus,
     input[type="number"]:focus,
-    textarea:focus { border-color: var(--purple); }
+    textarea:focus { border-color: var(--primary); }
 
     input.error,
-    textarea.error { border-color: #d00 !important; }
+    textarea.error { border-color: var(--destructive) !important; }
 
     textarea { resize: vertical; min-height: 96px; }
 
@@ -199,11 +230,11 @@
       font-size: 0.875rem;
       font-weight: 500;
       margin-bottom: 0.6rem;
-      color: var(--text);
+      color: var(--foreground);
     }
 
-    .q-label .opt { font-weight: 400; color: var(--muted); font-size: 0.8rem; }
-    .q-label .req { color: var(--purple); }
+    .q-label .opt { font-weight: 400; color: var(--muted-foreground); font-size: 0.8rem; }
+    .q-label .req { color: var(--primary); }
 
     /* ── OPTION CHIPS ── */
     .chips {
@@ -212,13 +243,13 @@
       gap: 0.5rem;
     }
 
-    .chips.error-group .chip { border-color: #d00; }
+    .chips.error-group .chip { border-color: var(--destructive); }
 
     .chip {
       padding: 0.55rem 1rem;
       border: 1.5px solid var(--border);
-      background: var(--white);
-      color: var(--text);
+      background: var(--secondary);
+      color: var(--foreground);
       font-family: inherit;
       font-size: 0.875rem;
       font-weight: 500;
@@ -226,25 +257,27 @@
       user-select: none;
       transition: border-color 0.1s, background 0.1s, color 0.1s;
       line-height: 1.4;
+      border-radius: 999px;
+      letter-spacing: var(--letter-spacing);
     }
 
     .chip:hover {
-      border-color: var(--purple);
-      color: var(--purple);
+      border-color: var(--primary);
+      color: var(--primary);
     }
 
     .chip.active {
-      background: var(--purple);
-      border-color: var(--purple);
-      color: var(--white);
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--primary-foreground);
     }
 
     /* ── SUBMIT ── */
     .submit-area { text-align: center; margin-top: 2.5rem; }
 
     .btn-submit {
-      background: var(--purple);
-      color: var(--white);
+      background: var(--primary);
+      color: var(--primary-foreground);
       border: none;
       padding: 1rem 0;
       width: 100%;
@@ -252,18 +285,19 @@
       font-family: inherit;
       font-size: 1rem;
       font-weight: 600;
-      letter-spacing: 0.01em;
+      letter-spacing: var(--letter-spacing);
       cursor: pointer;
-      transition: background 0.15s;
+      border-radius: var(--radius);
+      transition: opacity 0.15s;
     }
 
-    .btn-submit:hover { background: #7200a0; }
+    .btn-submit:hover { opacity: 0.85; }
     .btn-submit:disabled { opacity: 0.6; cursor: default; }
 
     .submit-note {
       margin-top: 1rem;
       font-size: 0.85rem;
-      color: var(--muted);
+      color: var(--muted-foreground);
       line-height: 1.5;
     }
 
@@ -271,7 +305,7 @@
       display: none;
       margin-top: 1rem;
       font-size: 0.875rem;
-      color: #d00;
+      color: var(--destructive);
       font-weight: 500;
     }
 
@@ -280,33 +314,37 @@
       display: none;
       text-align: center;
       padding: 3rem 2rem;
-      border: 1.5px solid var(--purple);
+      border: 1.5px solid var(--primary);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
     }
 
     .success-card h3 {
       font-size: 1.4rem;
       font-weight: 700;
-      color: var(--purple);
+      color: var(--primary);
       margin-bottom: 0.6rem;
     }
 
-    .success-card p { color: var(--muted); font-size: 0.975rem; }
+    .success-card p { color: var(--muted-foreground); font-size: 0.975rem; }
 
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 2rem 1.5rem;
       text-align: center;
+      background: var(--background);
     }
 
     footer p {
       font-size: 0.85rem;
-      color: var(--muted);
+      color: var(--muted-foreground);
       margin-bottom: 0.25rem;
     }
 
     footer a {
-      color: var(--purple);
+      color: var(--primary);
       text-decoration: none;
       font-weight: 500;
     }
@@ -318,7 +356,6 @@
       .grid-2 { grid-template-columns: 1fr; }
       .form-wrapper { padding: 3rem 1.25rem 3rem; }
       .hero { padding: 3rem 1.5rem; }
-      .hero-name { letter-spacing: -0.02em; }
     }
   </style>
 </head>
