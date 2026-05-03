@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethan Pinto | PT &amp; Online Coach | Sydney</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #8a00c2;
+      --purple-bg: #f5e6ff;
+      --text: #111111;
+      --muted: #666666;
+      --border: #dedede;
+      --white: #ffffff;
+      --offwhite: #f9f9f9;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-size: clamp(3.25rem, 9vw, 6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 400;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      background: var(--purple);
+      color: var(--white);
+      padding: 0.9rem 2.5rem;
+      font-family: inherit;
+      font-size: 0.975rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .btn-cta:hover { background: #7200a0; }
+
+    /* ── FORM WRAPPER ── */
+    .form-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .form-header h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-header p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* ── FORM SECTIONS ── */
+    .section {
+      padding-bottom: 2.5rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── GRID ── */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* ── FIELDS ── */
+    .field { margin-bottom: 1.1rem; }
+
+    .field label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .field label .opt {
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .field label .req { color: var(--purple); }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      font-family: inherit;
+      font-size: 0.975rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus,
+    textarea:focus { border-color: var(--purple); }
+
+    input.error,
+    textarea.error { border-color: #d00 !important; }
+
+    textarea { resize: vertical; min-height: 96px; }
+
+    /* ── QUESTION BLOCK ── */
+    .q-block { margin-bottom: 1.5rem; }
+
+    .q-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+
+    .q-label .opt { font-weight: 400; color: var(--muted); font-size: 0.8rem; }
+    .q-label .req { color: var(--purple); }
+
+    /* ── OPTION CHIPS ── */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chips.error-group .chip { border-color: #d00; }
+
+    .chip {
+      padding: 0.55rem 1rem;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      user-select: none;
+      transition: border-color 0.1s, background 0.1s, color 0.1s;
+      line-height: 1.4;
+    }
+
+    .chip:hover {
+      border-color: var(--purple);
+      color: var(--purple);
+    }
+
+    .chip.active {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: var(--white);
+    }
+
+    /* ── SUBMIT ── */
+    .submit-area { text-align: center; margin-top: 2.5rem; }
+
+    .btn-submit {
+      background: var(--purple);
+      color: var(--white);
+      border: none;
+      padding: 1rem 0;
+      width: 100%;
+      max-width: 340px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .btn-submit:hover { background: #7200a0; }
+    .btn-submit:disabled { opacity: 0.6; cursor: default; }
+
+    .submit-note {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .form-error {
+      display: none;
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      color: #d00;
+      font-weight: 500;
+    }
+
+    /* ── SUCCESS ── */
+    .success-card {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+      border: 1.5px solid var(--purple);
+    }
+
+    .success-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 0.6rem;
+    }
+
+    .success-card p { color: var(--muted); font-size: 0.975rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    footer a {
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 560px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .form-wrapper { padding: 3rem 1.25rem 3rem; }
+      .hero { padding: 3rem 1.5rem; }
+      .hero-name { letter-spacing: -0.02em; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section class="hero">
+  <span class="hero-eyebrow">Sydney, Australia 🇦🇺</span>
+  <h1 class="hero-name">Ethan Pinto</h1>
+  <p class="hero-title">PT &amp; Online Coach | Sydney 🇦🇺</p>
+  <p class="hero-tagline">Look, feel and perform better.</p>
+  <a href="#coaching-form" class="btn-cta">Apply for coaching</a>
+</section>
+
+<!-- ═══════════════════════════════ FORM ═══════════════════════════════ -->
+<div id="coaching-form" class="form-wrapper">
+  <div class="form-header">
+    <h2>Coaching Enquiry</h2>
+    <p>Fill in the form below and I'll be in touch within 24 hours.</p>
+  </div>
+
+  <form id="enquiryForm" novalidate>
+
+    <!-- 01 — ABOUT YOU -->
+    <div class="section">
+      <p class="section-label">01 — About You</p>
+
+      <div class="grid-2">
+        <div class="field">
+          <label for="firstName">First name <span class="req">*</span></label>
+          <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="lastName">Last name <span class="req">*</span></label>
+          <input type="text" id="lastName" name="lastName" autocomplete="family-name" required>
+        </div>
+        <div class="field">
+          <label for="age">Age <span class="req">*</span></label>
+          <input type="number" id="age" name="age" min="16" max="99" required>
+        </div>
+        <div class="field">
+          <label for="location">Location <span class="req">*</span></label>
+          <input type="text" id="location" name="location" placeholder="e.g. Sydney, NSW" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email <span class="req">*</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="instagram">Instagram handle <span class="opt">(optional)</span></label>
+        <input type="text" id="instagram" name="instagram" placeholder="@yourhandle">
+      </div>
+    </div>
+
+    <!-- 02 — COACHING TYPE -->
+    <div class="section">
+      <p class="section-label">02 — Coaching Type</p>
+      <div class="q-block">
+        <span class="q-label">What type of coaching are you interested in? <span class="req">*</span></span>
+        <div class="chips" id="coachingTypeChips" data-field="coachingType" data-required="true">
+          <div class="chip" data-val="Online coaching">Online coaching</div>
+          <div class="chip" data-val="In-person training (Sydney)">In-person training (Sydney)</div>
+          <div class="chip" data-val="Both — not sure yet">Both — not sure yet</div>
+        </div>
+        <input type="hidden" name="coachingType" id="coachingType">
+      </div>
+    </div>
+
+    <!-- 03 — YOUR GOALS -->
+    <div class="section">
+      <p class="section-label">03 — Your Goals</p>
+      <div class="q-block">
+        <span class="q-label">What is your primary goal? <span class="req">*</span></span>
+        <div class="chips" id="primaryGoalChips" data-field="primaryGoal" data-required="true">
+          <div class="chip" data-val="Build muscle &amp; improve physique">Build muscle &amp; improve physique</div>
+          <div class="chip" data-val="Lose body fat">Lose body fat</div>
+          <div class="chip" data-val="Build strength &amp; performance">Build strength &amp; performance</div>
+          <div class="chip" data-val="General fitness &amp; feel better">General fitness &amp; feel better</div>
+          <div class="chip" data-val="Body recomposition">Body recomposition</div>
+        </div>
+        <input type="hidden" name="primaryGoal" id="primaryGoal">
+      </div>
+      <div class="field">
+        <label for="idealResult">In your own words, what does your ideal result look like? <span class="req">*</span></label>
+        <textarea id="idealResult" name="idealResult" placeholder="Be as specific as you like — the more detail, the better." required></textarea>
+      </div>
+    </div>
+
+    <!-- 04 — TRAINING BACKGROUND -->
+    <div class="section">
+      <p class="section-label">04 — Training Background</p>
+
+      <div class="q-block">
+        <span class="q-label">How long have you been training? <span class="req">*</span></span>
+        <div class="chips" id="trainingDurationChips" data-field="trainingDuration" data-required="true">
+          <div class="chip" data-val="Never">Never</div>
+          <div class="chip" data-val="Less than 1 year">Less than 1 year</div>
+          <div class="chip" data-val="1–3 years">1–3 years</div>
+          <div class="chip" data-val="3+ years">3+ years</div>
+        </div>
+        <input type="hidden" name="trainingDuration" id="trainingDuration">
+      </div>
+
+      <div class="q-block">
+        <span class="q-label">How many days per week are you available to train? <span class="req">*</span></span>
+        <div class="chips" id="daysPerWeekChips" data-field="daysPerWeek" data-required="true">
+          <div class="chip" data-val="2–3 days">2–3 days</div>
+          <div class="chip" data-val="4–5 days">4–5 days</div>
+          <div class="chip" data-val="6+ days">6+ days</div>
+        </div>
+        <input type="hidden" name="daysPerWeek" id="daysPerWeek">
+      </div>
+
+      <div class="q-block">
+        <span class="q-label">Equipment access <span class="req">*</span> <span class="opt">(select all that apply)</span></span>
+        <div class="chips" id="equipmentChips" data-field="equipment" data-multi="true" data-required="true">
+          <div class="chip" data-val="Commercial gym">Commercial gym</div>
+          <div class="chip" data-val="Home gym">Home gym</div>
+          <div class="chip" data-val="Dumbbells only">Dumbbells only</div>
+          <div class="chip" data-val="No equipment">No equipment</div>
+        </div>
+        <input type="hidden" name="equipment" id="equipment">
+      </div>
+    </div>
+
+    <!-- 05 — HEALTH & LIFESTYLE -->
+    <div class="section">
+      <p class="section-label">05 — Health &amp; Lifestyle</p>
+
+      <div class="field">
+        <label for="injuries">Any injuries or medical conditions we should know about? <span class="opt">(optional)</span></label>
+        <textarea id="injuries" name="injuries" placeholder="e.g. lower back pain, knee injury — or just write 'none'"></textarea>
+      </div>
+
+      <div class="q-block">
+        <span class="q-label">How would you describe your current nutrition? <span class="req">*</span></span>
+        <div class="chips" id="nutritionChips" data-field="nutrition" data-required="true">
+          <div class="chip" data-val="No structure">No structure</div>
+          <div class="chip" data-val="Some awareness but inconsistent">Some awareness but inconsistent</div>
+          <div class="chip" data-val="I track calories or macros">I track calories or macros</div>
+          <div class="chip" data-val="Very structured">Very structured</div>
+        </div>
+        <input type="hidden" name="nutrition" id="nutrition">
+      </div>
+
+      <div class="q-block">
+        <span class="q-label">How busy is your lifestyle? <span class="req">*</span></span>
+        <div class="chips" id="lifestyleChips" data-field="lifestyle" data-required="true">
+          <div class="chip" data-val="Pretty flexible">Pretty flexible</div>
+          <div class="chip" data-val="Moderately busy">Moderately busy</div>
+          <div class="chip" data-val="Very busy">Very busy</div>
+        </div>
+        <input type="hidden" name="lifestyle" id="lifestyle">
+      </div>
+    </div>
+
+    <!-- 06 — FINAL QUESTIONS -->
+    <div class="section">
+      <p class="section-label">06 — Final Questions</p>
+
+      <div class="q-block">
+        <span class="q-label">Have you worked with a PT before? <span class="req">*</span></span>
+        <div class="chips" id="ptBeforeChips" data-field="ptBefore" data-required="true">
+          <div class="chip" data-val="No — first time">No — first time</div>
+          <div class="chip" data-val="Yes but it didn't work out">Yes but it didn't work out</div>
+          <div class="chip" data-val="Yes and it was great">Yes and it was great</div>
+        </div>
+        <input type="hidden" name="ptBefore" id="ptBefore">
+      </div>
+
+      <div class="field">
+        <label for="obstacles">What has stopped you from achieving your goal in the past? <span class="req">*</span></label>
+        <textarea id="obstacles" name="obstacles" placeholder="Be honest — this helps me understand how best to support you." required></textarea>
+      </div>
+
+      <div class="q-block">
+        <span class="q-label">How did you find me? <span class="req">*</span></span>
+        <div class="chips" id="referralChips" data-field="referral" data-required="true">
+          <div class="chip" data-val="Instagram">Instagram</div>
+          <div class="chip" data-val="TikTok">TikTok</div>
+          <div class="chip" data-val="Word of mouth">Word of mouth</div>
+          <div class="chip" data-val="Other">Other</div>
+        </div>
+        <input type="hidden" name="referral" id="referral">
+      </div>
+
+      <div class="field">
+        <label for="anythingElse">Anything else you'd like me to know? <span class="opt">(optional)</span></label>
+        <textarea id="anythingElse" name="anythingElse" placeholder="Any extra context, questions, or info…"></textarea>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-area">
+      <button type="submit" class="btn-submit" id="submitBtn">Submit enquiry</button>
+      <p class="submit-note">I'll review your answers and get back to you within 24 hours via email or Instagram DM.</p>
+      <p class="form-error" id="formError">Please fill in all required fields before submitting.</p>
+    </div>
+
+  </form>
+
+  <!-- Success state -->
+  <div class="success-card" id="successCard">
+    <h3>Enquiry received ✓</h3>
+    <p>Thanks for reaching out. I'll review your answers and get back to you within 24 hours via email or Instagram DM.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<footer>
+  <p>© 2025 Ethan Pinto Coaching</p>
+  <p><a href="https://instagram.com/ethann.pinto" target="_blank" rel="noopener noreferrer">Instagram: @ethann.pinto</a></p>
+</footer>
+
+<script>
+  // ── Replace this with your Google Apps Script deployment URL ──
+  var WEBHOOK_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+  // ── Chip selection ──
+  document.querySelectorAll('.chips').forEach(function (group) {
+    var isMulti = group.dataset.multi === 'true';
+    var fieldId = group.dataset.field;
+
+    group.querySelectorAll('.chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        if (isMulti) {
+          chip.classList.toggle('active');
+        } else {
+          group.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('active'); });
+          chip.classList.add('active');
+        }
+        group.classList.remove('error-group');
+        syncHidden(group, fieldId, isMulti);
+      });
+    });
+  });
+
+  function syncHidden(group, fieldId, isMulti) {
+    var vals = Array.from(group.querySelectorAll('.chip.active')).map(function (c) {
+      return c.dataset.val;
+    });
+    var el = document.getElementById(fieldId);
+    if (el) el.value = isMulti ? vals.join(', ') : (vals[0] || '');
+  }
+
+  // ── Form submission ──
+  document.getElementById('enquiryForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var form = e.target;
+    var errorEl = document.getElementById('formError');
+    errorEl.style.display = 'none';
+    var valid = true;
+
+    // Validate text/email/number inputs
+    form.querySelectorAll('input[required], textarea[required]').forEach(function (el) {
+      if (!el.value.trim()) {
+        el.classList.add('error');
+        valid = false;
+      } else {
+        el.classList.remove('error');
+      }
+    });
+
+    // Remove error on input
+    form.querySelectorAll('input, textarea').forEach(function (el) {
+      el.addEventListener('input', function () { el.classList.remove('error'); }, { once: true });
+    });
+
+    // Validate required chip groups
+    document.querySelectorAll('.chips[data-required="true"]').forEach(function (group) {
+      var fieldId = group.dataset.field;
+      var el = document.getElementById(fieldId);
+      if (!el || !el.value.trim()) {
+        group.classList.add('error-group');
+        valid = false;
+      } else {
+        group.classList.remove('error-group');
+      }
+    });
+
+    if (!valid) {
+      errorEl.style.display = 'block';
+      // Scroll to first error
+      var firstError = form.querySelector('.error, .error-group');
+      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    var submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+
+    var data = {
+      firstName:        form.firstName.value.trim(),
+      lastName:         form.lastName.value.trim(),
+      age:              form.age.value.trim(),
+      location:         form.location.value.trim(),
+      email:            form.email.value.trim(),
+      instagram:        form.instagram.value.trim(),
+      coachingType:     form.coachingType.value,
+      primaryGoal:      form.primaryGoal.value,
+      idealResult:      form.idealResult.value.trim(),
+      trainingDuration: form.trainingDuration.value,
+      daysPerWeek:      form.daysPerWeek.value,
+      equipment:        form.equipment.value,
+      injuries:         form.injuries.value.trim(),
+      nutrition:        form.nutrition.value,
+      lifestyle:        form.lifestyle.value,
+      ptBefore:         form.ptBefore.value,
+      obstacles:        form.obstacles.value.trim(),
+      referral:         form.referral.value,
+      anythingElse:     form.anythingElse.value.trim(),
+      submittedAt:      new Date().toISOString()
+    };
+
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      // no-cors means we can't read the response — assume success
+      form.style.display = 'none';
+      document.querySelector('.form-header').style.display = 'none';
+      document.getElementById('successCard').style.display = 'block';
+      window.scrollTo({ top: document.getElementById('coaching-form').offsetTop - 32, behavior: 'smooth' });
+    } catch (err) {
+      errorEl.textContent = 'Something went wrong. Please try again or reach out via Instagram.';
+      errorEl.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit enquiry';
+    }
+  });
+</script>
+</body>
+</html>
