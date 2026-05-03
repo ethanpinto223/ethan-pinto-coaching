@@ -46,14 +46,18 @@
 
     html { scroll-behavior: smooth; }
 
+    html { background: var(--background); }
+
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--foreground);
-      background: var(--background);
+      background: transparent;
       line-height: 1.6;
       font-size: 16px;
       letter-spacing: var(--letter-spacing);
       -webkit-font-smoothing: antialiased;
+      position: relative;
+      z-index: 1;
     }
 
     /* ── HERO ── */
@@ -66,7 +70,7 @@
       text-align: center;
       padding: 4rem 2rem;
       border-bottom: 1px solid var(--border);
-      background: var(--background);
+      background: transparent;
     }
 
     .hero-eyebrow {
@@ -363,11 +367,13 @@
       to   { background-position: 350% 50%, 350% 50%; }
     }
 
-    .aurora-container {
-      position: absolute;
+    /* Single fixed aurora behind the entire page */
+    .aurora-bg {
+      position: fixed;
       inset: 0;
-      overflow: hidden;
+      z-index: 0;
       pointer-events: none;
+      overflow: hidden;
     }
 
     .aurora-layer {
@@ -416,9 +422,11 @@
 </head>
 <body>
 
+<!-- Single full-page aurora background -->
+<div class="aurora-bg"><div class="aurora-layer"></div></div>
+
 <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
 <section class="hero">
-  <div class="aurora-container"><div class="aurora-layer"></div></div>
   <span class="hero-eyebrow">Sydney, Australia 🇦🇺</span>
   <h1 class="hero-name">Ethan Pinto</h1>
   <p class="hero-title">PT &amp; Online Coach | Sydney 🇦🇺</p>
@@ -427,8 +435,7 @@
 </section>
 
 <!-- ═══════════════════════════════ FORM ═══════════════════════════════ -->
-<div id="coaching-form" class="form-wrapper" style="position:relative;">
-  <div class="aurora-container"><div class="aurora-layer"></div></div>
+<div id="coaching-form" class="form-wrapper">
   <div class="form-header">
     <h2>Coaching Enquiry</h2>
     <p>Fill in the form below and I'll be in touch within 24 hours.</p>
