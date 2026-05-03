@@ -471,6 +471,10 @@
         <input type="email" id="email" name="email" autocomplete="email" required>
       </div>
       <div class="field">
+        <label for="phone">Phone number <span class="req">*</span></label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="e.g. 0412 345 678" required>
+      </div>
+      <div class="field">
         <label for="instagram">Instagram handle <span class="opt">(optional)</span></label>
         <input type="text" id="instagram" name="instagram" placeholder="@yourhandle">
       </div>
@@ -719,6 +723,7 @@
       age:              form.age.value.trim(),
       location:         form.location.value.trim(),
       email:            form.email.value.trim(),
+      phone:            form.phone.value.trim(),
       instagram:        form.instagram.value.trim(),
       coachingType:     form.coachingType.value,
       primaryGoal:      form.primaryGoal.value,
